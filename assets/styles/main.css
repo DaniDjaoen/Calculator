@@ -22,7 +22,7 @@ html {
     width: 320px;
     margin: auto;
     background-color: white;
-    background-image: url(/assets/images/greenarrow.jpg);
+    background-image: url(/../assets/images/greenarrow.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
