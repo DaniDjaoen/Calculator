@@ -1,0 +1,69 @@
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+footer {
+    text-align: center;
+    margin: 10px 0;
+}
+h1 {
+    font-size: 3em;
+}
+html {
+    font-family: 'Roboto Mono', monospace;
+    background: rgb(133,148,107);
+    background: linear-gradient(145deg, rgba(133,148,107,1) 0%, rgba(255,255,255,0) 50%, rgba(133,148,107,1) 100%);
+    background-attachment: fixed;
+}
+#calculator-container {
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+    width: 320px;
+    margin: auto;
+    background-color: white;
+    background-image: url(/assets/images/greenarrow.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+#calculator-result-screen {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 40px 20px;
+}
+#calculator-result-digits {
+    text-align: right;
+}
+#calculator-functions-container {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:"clear-btn clear-btn backspace-btn summary-btn"
+                        "number-7-btn number-8-btn number-9-btn divide-btn" 
+                        "number-4-btn number-5-btn number-6-btn multiply-btn" 
+                        "number-1-btn number-2-btn number-3-btn substract-btn" 
+                        "number-0-btn number-0-btn dot-btn add-btn" ;
+    text-align: center;
+    column-gap: 10px;
+    row-gap: 10px;
+
+}
+#calculator-functions-container button {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+}
+#calculator-clear-button {
+    grid-area: clear-btn;
+}
+#calculator-backspace-button {
+    grid-area: backspace-btn;
+}
+#calculator-summary-button {
+    grid-area: summary-btn;
+}
+#calculator-number-0-button {
+    grid-area: number-0-btn;
+}
