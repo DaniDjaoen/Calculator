@@ -104,6 +104,7 @@ calcDotBtn.addEventListener('click', function () {
     const dotBtn = ".";
     checkIfOperatorIsActive(dotBtn);
     deactivateNumberBtns(false);
+    calcDotBtn.disabled = true;
 });
 calcAddBtn.addEventListener('click', function () {
     calcInput_O = "+";
