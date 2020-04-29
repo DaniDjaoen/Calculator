@@ -151,15 +151,26 @@ calcSummaryBtn.addEventListener('click', function () {
         console.log(`New Calc A = ${calcInput_A}`);
         deactivateNumberBtns(true);
     } else if (calcInput_O == "/") {
-        console.log(`Calc A = ${calcInput_A}, Calc B = ${calcInput_B}`);
-        calcSummary_Result = Number(calcInput_A) / Number(calcInput_B);
-        calcScreenPopulate(calcSummary_Result);
-        calcInput_O = "";
-        calcInput_B = "";
-        console.log(`Calc A = ${calcInput_A}, Calc B = ${calcInput_B}`);
-        calcInput_A = `${calcSummary_Result}`;
-        console.log(`New Calc A = ${calcInput_A}`);
-        deactivateNumberBtns(true);
+        if (calcInput_B == "0") {
+            calcInput_A = "";
+            calcInput_B = "";
+            calcInput_O = "";
+            isOperatorActive = false;
+            console.log(`Cleaned all inputs, confirming all inputs: A = ${calcInput_A}, B = ${calcInput_B}, O = ${calcInput_O}`);
+            calcScreenPopulate("Error");
+            deactivateNumberBtns(false);
+            deactivateOperatorBtns(true);
+        } else {
+            console.log(`Calc A = ${calcInput_A}, Calc B = ${calcInput_B}`);
+            calcSummary_Result = Number(calcInput_A) / Number(calcInput_B);
+            calcScreenPopulate(calcSummary_Result);
+            calcInput_O = "";
+            calcInput_B = "";
+            console.log(`Calc A = ${calcInput_A}, Calc B = ${calcInput_B}`);
+            calcInput_A = `${calcSummary_Result}`;
+            console.log(`New Calc A = ${calcInput_A}`);
+            deactivateNumberBtns(true);
+        }
     } else if (calcInput_O == "*") {
         console.log(`Calc A = ${calcInput_A}, Calc B = ${calcInput_B}`);
         calcSummary_Result = Number(calcInput_A) * Number(calcInput_B);
@@ -176,12 +187,13 @@ calcClearBtn.addEventListener('click', function () {
     calcInput_A = "";
     calcInput_B = "";
     calcInput_O = "";
+    isOperatorActive = false;
     console.log(`Cleaned all inputs, confirming all inputs: A = ${calcInput_A}, B = ${calcInput_B}, O = ${calcInput_O}`);
     calcScreenPopulate("0");
     deactivateNumberBtns(false);
     deactivateOperatorBtns(true);
 });
-calcBackspaceBtn.addEventListener('click', function(){
+calcBackspaceBtn.addEventListener('click', function () {
     if (isOperatorActive === false) {
         calcInput_A = calcInput_A.slice(0, -1);
         calcScreenPopulate(calcInput_A);
@@ -199,6 +211,7 @@ function deactivateNumberBtns(btnStatus) {
     calcBackspaceBtn.disabled = btnStatus;
     calcDotBtn.disabled = btnStatus;
 }
+
 function deactivateOperatorBtns(btnStatus) {
     for (let btn = 0; btn < allOperatorBtns.length; btn++) {
         allOperatorBtns[btn].disabled = btnStatus;
