@@ -109,23 +109,31 @@ calcDotBtn.addEventListener('click', function () {
 calcAddBtn.addEventListener('click', function () {
     calcInput_O = "+";
     isOperatorActive = true;
+    calcInput_A = Number(calcInput_A) + Number(calcInput_B);
+    calcInput_B = "";
     calcScreenPopulate(`(${calcInput_A})${calcInput_O}`);
     deactivateNumberBtns(false);
 });
 calcSubstractBtn.addEventListener('click', function () {
     calcInput_O = "-";
+    calcInput_A = Number(calcInput_A) - Number(calcInput_B);
+    calcInput_B = "";
     isOperatorActive = true;
     calcScreenPopulate(`(${calcInput_A})${calcInput_O}`);
     deactivateNumberBtns(false);
 });
 calcDivideBtn.addEventListener('click', function () {
     calcInput_O = "/";
+    calcInput_A = Number(calcInput_A) / Number(calcInput_B);
+    calcInput_B = "";
     isOperatorActive = true;
     calcScreenPopulate(`(${calcInput_A})${calcInput_O}`);
     deactivateNumberBtns(false);
 });
 calcMultiplyBtn.addEventListener('click', function () {
     calcInput_O = "*";
+    calcInput_A = Number(calcInput_A) * Number(calcInput_B);
+    calcInput_B = "";
     isOperatorActive = true;
     calcScreenPopulate(`(${calcInput_A})${calcInput_O}`);
     deactivateNumberBtns(false);
