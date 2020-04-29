@@ -67,3 +67,6 @@ html {
 #calculator-number-0-button {
     grid-area: number-0-btn;
 }
+button:disabled {
+    cursor: not-allowed;
+}
